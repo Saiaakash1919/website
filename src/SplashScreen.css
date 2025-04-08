@@ -9,12 +9,14 @@ body {
   margin: 0;
   padding: 0;
   min-height: 300vh; /* Makes the page scrollable */
+  background-attachment: fixed;
   background: linear-gradient(to bottom, 
     black 70vh, 
     white 150vh, 
     rgb(107, 55, 138) 200vh,
     rgb(230, 163, 86) 300vh
   );
+
   transition: background 2s ease;
 }
 
@@ -49,7 +51,7 @@ body {
 /* Menu Button */
 .menu-button {
   color: white;
-  font-size: 50px;
+  font-size: 150px;
   position: fixed;
   background-color: transparent ;
   border: 0px ;

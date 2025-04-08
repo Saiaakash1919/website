@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import SplashScreen from './SplashScreen';
 import './SplashScreen.css';
-function App() {
+function Home() {
   const [showSplash, setShowSplash] = useState(true);
 
   return (
     <div className="App">
      
-
     
         <SplashScreen onFinish={() => setShowSplash(false)} />
       
@@ -15,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

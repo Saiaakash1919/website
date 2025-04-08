@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './SplashScreen.css';
 import { IoMenu } from "react-icons/io5";
 import Footer from './Footer';
+import CircularGallery from './CircularGallery';
+import { ImCross } from "react-icons/im";
+
+
 
 const SplashScreen = ({ onFinish }) => {
   const topImages = [
@@ -40,9 +44,20 @@ const SplashScreen = ({ onFinish }) => {
     'https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   ];
 
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [topIndex, setTopIndex] = useState(0);
   const [bottomIndex, setBottomIndex] = useState(0);
+  const [showContact, setShowContact] = useState(false);
+ 
+  const handleContactClick = () => {
+    setShowContact(!showContact);
+  };
 
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setTopIndex((prevIndex) => (prevIndex + 1) % topImages.length);
@@ -65,18 +80,33 @@ const SplashScreen = ({ onFinish }) => {
 
   return (
     <div className="flex flex-wrap">
-      {/* Menu Bar */}
-  
-   
-      {/* Brand Name and Contact Us */}
-      <div className="brand-container">
-        <button className="menu-button"><IoMenu /></button>
-        <h1 className="brand-name">SIO</h1>
+      {isMenuOpen && (
+        <div className="fixed top-0 left-0 h-full w-64 bg-stone-500 text-white p-4 transition-transform duration-300 ease-in-out z-50">
+          <button
+            onClick={toggleMenu}
+            className="text-white  mb-4 hover:text-gray-900 text-4xl font-bold"
+          >
+           <ImCross />
+          </button>
+          <ul className="space-y-4">
+            <li><a href="#" className="hover:text-gray-900 text-4xl font-bold ">Home</a></li>
+            <li><a href="#About" className="hover:text-gray-900 text-4xl font-bold">About</a></li>
+            <li><a href="#Projects" className="hover:text-gray-900 text-4xl font-bold">Projects</a></li>
+            <li><a href="#Contact" className="hover:text-gray-900 text-4xl font-bold ">Contact</a></li>
+          </ul>
+        </div>
+      )}
+
+      {/* Brand Name and Menu Button */}
+      <div className="brand-container flex items-center justify-between p-4">
+        <button onClick={toggleMenu} className="menu-button text-4xl font-bold">
+          <IoMenu className="text-3xl" /></button>
+        <h1 className="brand-name font-bold">SIO</h1>
         <button className="contact-btn">Contact Us</button>
       </div>
       
  {/* Image Container */}
- <div className="image-container">
+ <div className="image-container">  
         <img
           src={topImages[topIndex]}
           alt="Top"
@@ -93,19 +123,13 @@ construction projects in London.</div>
       </div>
 
  {/* Image Container */}
- <div className="image-container">
-        <img
-          src={secondtopImages[topIndex]}
-          alt="Top"
-          className="top-image m-4"
-        />
-        <div class="overlay-text">We deliver exceptional,
 
-construction projects in London.</div>
+       <div>
+        <div class="overlay-text font p-0 mt-[47%] font-black">"Architecture is the learned game, correct and magnificent, of forms assembled in light." — Le Corbusier.</div>
         <img
           src={secondbottomImages[bottomIndex]}
           alt="Bottom"
-          className="bottom-image"
+          className="bottom-image ml-[120%]  p-0 mt-0  "
         />
       </div>
        {/* Image Container */}
@@ -116,13 +140,16 @@ construction projects in London.</div>
           className="top-image m-6"
         />
        
-        <img
+        <img 
           src={thirdbottomImages[bottomIndex]}
           alt="Bottom"
-          className="bottom-image"
+          className="bottom-image  last "
         />
       </div>
-
+      <div style={{ height: '600px',position: 'relative' }}
+      className="w-full">
+  <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+</div>
      <Footer/>
     </div>
   );
