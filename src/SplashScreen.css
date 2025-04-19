@@ -94,7 +94,22 @@ body {
   box-sizing: border-box;
   margin-right: 50%;
 }
+.Second-Textcontainer{
+  display: flex;
 
+}
+.Second-Text{
+  width: 40%;
+  color: rgb(34, 33, 33);
+  font-size: 50px;
+  margin-top: 10%;
+  background: transparent;
+ 
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-right: 10%;
+  line-height: 1;
+}
 /* Animations */
 @keyframes zoomIn {
   0% { transform: translate(-50%, -50%) scale(1); }
@@ -149,6 +164,18 @@ body {
   0% { transform: translateY(100px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
 }
+.overlay-text {
+  position: absolute; /* <-- This can mess up layout if not sized properly */
+  top: 50%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+  /* You can tweak this */
+  width: 90%; /* Add this if it’s overflowing */
+  line-height: 1; /* fallback if tailwind doesn't apply */
+  white-space: normal; /* just in case text was collapsing */
+  text-align: left;
+}
+
 
 
 /* 📱 Responsive Design for Mobile Devices */
@@ -184,4 +211,16 @@ body {
     flex-direction: column;  /* Stack items vertically on mobile */
     margin: 2vw;
   }
+  .overlay-text {
+    position: absolute; /* <-- This can mess up layout if not sized properly */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* You can tweak this */
+    width: 90%; /* Add this if it’s overflowing */
+    line-height: 1; /* fallback if tailwind doesn't apply */
+    white-space: normal; /* just in case text was collapsing */
+    text-align: left;
+  }
+  
 }
