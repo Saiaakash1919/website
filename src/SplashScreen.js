@@ -80,8 +80,8 @@ const SplashScreen = ({ onFinish }) => {
   return (
     <div className="flex flex-wrap">
       {isMenuOpen && (
-              <div className="fixed top-0 left-0 h-full w-64 bg-stone-500 text-white p-4 transition-transform duration-300 ease-in-out z-50">
-                <button onClick={toggleMenu} className="text-white mb-4 hover:text-gray-900 text-3xl font-bold">
+              <div className="fixed top-0 left-0 h-full w-64 bg-stone-500 text-black p-4 transition-transform duration-300 ease-in-out z-50">
+                <button onClick={toggleMenu} className="text-black mb-4 hover:text-gray-300 text-3xl font-bold">
                   <ImCross />
                 </button>
                 <ul className="space-y-4">
@@ -89,7 +89,7 @@ const SplashScreen = ({ onFinish }) => {
                     <Link
                       to="/"
                       onClick={toggleMenu}
-                      className="hover:text-gray-900 text-2xl font-bold italic"
+                      className="hover:text-gray-300 text-2xl font-bold italic"
                     >
                       Home
                     </Link>
@@ -98,7 +98,7 @@ const SplashScreen = ({ onFinish }) => {
                     <Link
                       to="/about"
                       onClick={toggleMenu}
-                      className="hover:text-gray-900 text-2xl font-bold italic"
+                      className="hover:text-gray-300 text-2xl font-bold italic"
                     >
                       About
                     </Link>
@@ -107,7 +107,7 @@ const SplashScreen = ({ onFinish }) => {
                     <Link
                       to="/projects"
                       onClick={toggleMenu}
-                      className="hover:text-gray-900 text-2xl font-bold italic"
+                      className="hover:text-gray-300 text-2xl font-bold italic"
                     >
                       Projects
                     </Link>
@@ -116,7 +116,7 @@ const SplashScreen = ({ onFinish }) => {
                     <Link
                       to="/contact"
                       onClick={toggleMenu}
-                      className="hover:text-gray-900 text-2xl font-bold italic"
+                      className="hover:text-gray-300 text-2xl font-bold italic"
                     >
                       Contact
                     </Link>
