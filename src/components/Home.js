@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SplashScreen from './SplashScreen';
-import './SplashScreen.css';
+import SplashScreen from '../SplashScreen';  // Import JS file from root of src
+import '../SplashScreen.css'; 
 function Home() {
   const [showSplash, setShowSplash] = useState(true);
 

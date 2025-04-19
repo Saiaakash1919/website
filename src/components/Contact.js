@@ -4,9 +4,9 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-3xl font-bold text-center text-purple-600 mb-4">Contact Us</h2>
+    <div className="min-h-screen bg-gray-700 flex items-center justify-center px-4">
+      <div className="bg-gray-300 p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h2 className="text-3xl font-bold text-center text-gray-600 mb-4">Contact Us</h2>
         <p className="text-gray-500 text-center mb-6">We'd love to hear from you! Fill out the form below.</p>
 
         <form className="space-y-4">
@@ -43,7 +43,7 @@ const Contact = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300"
+            className="w-full bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300"
           >
             Send Message
           </button>

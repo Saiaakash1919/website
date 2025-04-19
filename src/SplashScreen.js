@@ -4,6 +4,9 @@ import { IoMenu } from "react-icons/io5";
 import Footer from './Footer';
 import CircularGallery from './CircularGallery';
 import { ImCross } from "react-icons/im";
+import CardRotate from "./CardRotate"
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -20,11 +23,7 @@ const SplashScreen = ({ onFinish }) => {
     'https://images.pexels.com/photos/258846/pexels-photo-258846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   ];
 
-  const secondtopImages = [
-    'https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    'https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    'https://images.pexels.com/photos/259580/pexels-photo-259580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  ];
+ 
 
   const secondbottomImages = [
     'https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -56,7 +55,7 @@ const SplashScreen = ({ onFinish }) => {
 
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(prevState => !prevState);
   };
   useEffect(() => {
     const interval = setInterval(() => {
@@ -81,29 +80,59 @@ const SplashScreen = ({ onFinish }) => {
   return (
     <div className="flex flex-wrap">
       {isMenuOpen && (
-        <div className="fixed top-0 left-0 h-full w-64 bg-stone-500 text-white p-4 transition-transform duration-300 ease-in-out z-50">
-          <button
-            onClick={toggleMenu}
-            className="text-white  mb-4 hover:text-gray-900 text-4xl font-bold"
-          >
-           <ImCross />
-          </button>
-          <ul className="space-y-4">
-            <li><a href="#" className="hover:text-gray-900 text-4xl font-bold ">Home</a></li>
-            <li><a href="#About" className="hover:text-gray-900 text-4xl font-bold">About</a></li>
-            <li><a href="#Projects" className="hover:text-gray-900 text-4xl font-bold">Projects</a></li>
-            <li><a href="#Contact" className="hover:text-gray-900 text-4xl font-bold ">Contact</a></li>
-          </ul>
-        </div>
-      )}
-
-      {/* Brand Name and Menu Button */}
-      <div className="brand-container flex items-center justify-between p-4">
-        <button onClick={toggleMenu} className="menu-button text-4xl font-bold">
-          <IoMenu className="text-3xl" /></button>
-        <h1 className="brand-name font-bold">SIO</h1>
-        <button className="contact-btn">Contact Us</button>
-      </div>
+              <div className="fixed top-0 left-0 h-full w-64 bg-stone-500 text-white p-4 transition-transform duration-300 ease-in-out z-50">
+                <button onClick={toggleMenu} className="text-white mb-4 hover:text-gray-900 text-3xl font-bold">
+                  <ImCross />
+                </button>
+                <ul className="space-y-4">
+                  <li>
+                    <Link
+                      to="/"
+                      onClick={toggleMenu}
+                      className="hover:text-gray-900 text-2xl font-bold italic"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/about"
+                      onClick={toggleMenu}
+                      className="hover:text-gray-900 text-2xl font-bold italic"
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/projects"
+                      onClick={toggleMenu}
+                      className="hover:text-gray-900 text-2xl font-bold italic"
+                    >
+                      Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/contact"
+                      onClick={toggleMenu}
+                      className="hover:text-gray-900 text-2xl font-bold italic"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+      
+            {/* Brand Name and Menu Button */}
+            <div className="brand-container flex items-center justify-between p-4">
+              <button onClick={toggleMenu} className="menu-button text-4xl font-bold">
+                <IoMenu className="text-3xl font-bold" />
+              </button>
+              <h1 className="brand-name font-bold">SIO</h1>
+              <button className="contact-btn">Contact Us</button>
+            </div>
       
  {/* Image Container */}
  <div className="image-container">  
@@ -126,11 +155,11 @@ construction projects in London.</div>
 
        <div>
         <div class="overlay-text font p-0 mt-[47%] font-black">"Architecture is the learned game, correct and magnificent, of forms assembled in light." — Le Corbusier.</div>
-        <img
-          src={secondbottomImages[bottomIndex]}
-          alt="Bottom"
-          className="bottom-image ml-[120%]  p-0 mt-0  "
-        />
+        
+       
+        <div className='ml-[200%] mt-20'>
+        <CardRotate/>
+        </div>
       </div>
        {/* Image Container */}
  <div className="image-container ">
