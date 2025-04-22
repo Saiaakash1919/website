@@ -1,8 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+  const navigate = useNavigate();
+
+const handleBack = () => {
+  navigate(-1); // Takes the user one step back in history
+};
+
   return (
     <div className="min-h-screen bg-gray-500 text-gray-800">
+         <button
+      onClick={handleBack}
+      className="fixed top-4 left-4 bg-black text-white px-4 py-2 rounded-md text-sm shadow-lg hover:bg-gray-800 transition z-50"
+    >
+      ← Back
+    </button>
       {/* Hero Section */}
       <section className="bg-gray-600 text-white text-center py-20">
         <h1 className="text-4xl font-bold mb-4">About Us</h1>

@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SplashScreen from './SplashScreen';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Home from './components/Home'; // or use SplashScreen again if Home is Splash
+import Home from './components/Home';
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
+
+  useEffect(() => {
+    const hasAnimated = sessionStorage.getItem('hasAnimated');
+    if (!hasAnimated) {
+      setShowSplash(true);
+    }
+  }, []);
+
+  const handleSplashFinish = () => {
+    sessionStorage.setItem('hasAnimated', 'true'); // Set the flag
+    setShowSplash(false);
+  };
 
   if (showSplash) {
-    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+    return <SplashScreen onFinish={handleSplashFinish} />;
   }
 
   return (
@@ -22,7 +34,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
-  
   );
 }
 

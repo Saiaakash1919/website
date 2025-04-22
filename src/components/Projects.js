@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const projects = [
   {
@@ -27,9 +28,22 @@ const projects = [
   },
 ];
 
+
 const Projects = () => {
+  const navigate = useNavigate();
+
+const handleBack = () => {
+  navigate(-1); // Takes the user one step back in history
+};
+
   return (
     <div className="min-h-screen bg-gray-900 py-8 px-4">
+         <button
+      onClick={handleBack}
+      className="fixed top-4 left-4 bg-slate-600 text-white px-4 py-2 rounded-md text-sm shadow-lg hover:bg-gray-800 transition z-50"
+    >
+      ← Back
+    </button>
       <h2 className="text-4xl font-bold text-center text-purple-100 mb-8">Our Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (

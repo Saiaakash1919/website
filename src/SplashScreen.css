@@ -194,6 +194,13 @@ body {
     height: 35px;
     margin-left: 80%;
   }
+  .Second-Text {
+    width: 90%;
+    font-size: 28px;
+    margin: 20px auto;
+    text-align: center;
+    line-height: 1.6;
+  }
 
   .overlay-text {
     font-size: 30px;
