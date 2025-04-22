@@ -15,7 +15,7 @@ const handleBack = () => {
     <div className="min-h-screen bg-gray-700 flex items-center justify-center px-4">
       <button
   onClick={handleBack}
-  className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition"
+  className="fixed top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-black transition"
 >
   ← Back
 </button>
